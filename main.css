@@ -1,0 +1,120 @@
+/* Background */
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* Floating glassmorphism button with neon glow */
+#join-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    padding: 16px 36px;
+    background: rgba(45, 70, 90, 0.6);
+    border-radius: 1.5rem;
+    border: 2px solid rgba(0, 255, 200, 0.4);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 12px rgba(0, 255, 200, 0.4);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    animation: neonPulse 3s infinite ease-in-out;
+}
+#join-btn:hover {
+    background: rgba(60, 100, 120, 0.7);
+    box-shadow: 0 0 20px rgba(0, 255, 220, 0.8),
+                0 0 40px rgba(0, 255, 220, 0.6);
+    border-color: rgba(0, 255, 220, 0.9);
+}
+
+/* Video Grid */
+#video-streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    height: 90vh;
+    width: 90%;
+    margin: 1em auto;
+    gap: 1em;
+    padding: 1em;
+}
+
+/* Neon glow animation */
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 255, 180, 0.3),
+                    0 0 20px rgba(0, 255, 180, 0.2),
+                    0 0 40px rgba(0, 255, 180, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0, 255, 200, 0.5),
+                    0 0 30px rgba(0, 255, 200, 0.3),
+                    0 0 60px rgba(0, 255, 200, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 255, 180, 0.3),
+                    0 0 20px rgba(0, 255, 180, 0.2),
+                    0 0 40px rgba(0, 255, 180, 0.1);
+    }
+}
+
+/* Glassy video containers with neon borders */
+.video-container {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 2px solid rgba(0, 255, 200, 0.4);
+    background: rgba(32, 58, 73, 0.6);
+    backdrop-filter: blur(10px);
+    animation: neonPulse 3s infinite ease-in-out;
+    transition: transform 0.2s ease-in-out, border 0.3s ease-in-out;
+}
+.video-container:hover {
+    transform: scale(1.03);
+    border: 2px solid rgba(0, 255, 220, 0.8);
+    box-shadow: 0 0 25px rgba(0, 255, 220, 0.8),
+                0 0 50px rgba(0, 255, 220, 0.6);
+}
+
+.video-player {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+/* Controls */
+button {
+    border: none;
+    border-radius: 1rem;
+    background: rgba(72, 169, 166, 0.7);
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 15px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.25s ease-in-out;
+}
+button:hover {
+    background: rgba(100, 220, 210, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Control bar */
+#stream-controls {
+    display: none;
+    justify-content: center;
+    margin-top: 0.5em;
+    gap: 1em;
+}
+
+/* Responsive */
+@media screen and (max-width: 1400px) {
+    #video-streams {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        width: 95%;
+    }
+}
